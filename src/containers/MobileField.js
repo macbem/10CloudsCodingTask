@@ -26,13 +26,13 @@ class MobileField extends Component {
     return (
       <Field>
         <Label>Mobile</Label>
-        <PrefixSelect name="form-field-name"
+        <PrefixSelect name="mobile-prefix"
                       value={this.state.value}
                       options={options}
                       searchable={false}
                       clearable={false}
                       onChange={this.handleChange}/>
-        <PhoneNumberField type="tel" placeholder="783 420 360" />
+        <PhoneNumberField type="tel" placeholder="720360420" />
       </Field>
     );
   }

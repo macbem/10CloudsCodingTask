@@ -4,7 +4,7 @@ const FormField = styled.div`
   margin-bottom: 25px;
   width: 100%;
   max-width: 100%;
-  &:last-child { margin: 0; }
+  &:last-of-type { margin: 0; }
 `;
 
 export default FormField;

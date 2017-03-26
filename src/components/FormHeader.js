@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as colors from '../constants/colors';
+import { textDark } from '../constants/colors';
 const FormHeaderElement = styled.header`
   position: relative;
   margin: 0 0 48px;
   padding: 0 63px 0 15px;
+  @media (max-width: 543px) {
+    margin-bottom: 22px;
+  }
 `;
 
 const FormDescription = styled.p`
   line-height: 24px;
-  color: ${colors.textDark};
+  color: ${textDark};
   margin: 0;
   font-weight: 600;
 `;
@@ -27,6 +30,10 @@ const FormHeading = styled.h1`
     text-align: center;
     left: 0;
     width: 100%;
+  }
+  @media (max-width: 543px) {
+    font-size: 36px;
+    top: -96px;
   }
 `;
 

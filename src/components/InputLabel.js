@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import * as colors from '../constants/colors';
+import { textMuted } from '../constants/colors';
 
 const InputLabel = styled.label`
-  color: ${colors.textMuted};
+  color: ${textMuted};
   font-size: 11px;
   margin-left: 16px;
   margin-bottom: 9px;

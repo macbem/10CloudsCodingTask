@@ -15,7 +15,7 @@ class NameField extends Component {
     return (
       <Field>
         <Label>Your name</Label>
-        <TextInput placeholder="David Gilmour" />
+        <TextInput name="name" placeholder="Gabe Newell" />
       </Field>
     );
   }

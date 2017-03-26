@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as colors from '../constants/colors';
+import { focusColor, hintColor, borderLight } from '../constants/colors';
 
 export const HiddenInput = styled.input`
   opacity: 0;
@@ -13,10 +13,10 @@ export const HiddenInput = styled.input`
   
   &:focus + label,
   &:focus + label::after { 
-    border-color: ${colors.focusColor};
+    border-color: ${focusColor};
   }
   &:focus:checked + label::before {
-    background: ${colors.focusColor};
+    background: ${focusColor};
   }
 `;
 
@@ -33,7 +33,7 @@ export const CustomRadio = styled.label`
   &, &::after {
     border-width: 2px;
     border-style: solid;
-    border-color: ${({ticked}) => ticked ? colors.hintColor : colors.borderLight};
+    border-color: ${({ticked}) => ticked ? hintColor : borderLight};
   }
   &, &::before, &::after {
     transition: .2s border-color, .2s background;
@@ -43,7 +43,7 @@ export const CustomRadio = styled.label`
     height: 3px;
     z-index: 1;
     transform: translate(50%, -50%);
-    background: ${colors.hintColor};
+    background: ${hintColor};
     display: ${({ticked}) => ticked ? 'block' : 'none'};
   }
   &::after {

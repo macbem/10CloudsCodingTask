@@ -66,7 +66,7 @@
     padding-right: 5px;
 }
 .Select-arrow {
-    border-color: #999 transparent transparent;
+    border-color: rgba(47, 48, 48, 0.25) transparent transparent;
     border-style: solid;
     border-width: 5px 5px 2.5px;
     display: inline-block;
@@ -78,7 +78,6 @@
     position: relative;
 }
 .is-open .Select-arrow {
-    border-top-color: #666;
     transform: rotate(180deg);
     top: -2px;
 }

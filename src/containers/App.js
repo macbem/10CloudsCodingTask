@@ -11,7 +11,7 @@ injectGlobalStyles();
 
 const AnimationWrapper = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;

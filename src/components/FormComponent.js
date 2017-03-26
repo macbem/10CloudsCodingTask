@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as colors from '../constants/colors';
+import { activeColor, formBackground } from '../constants/colors';
 
 const FormComponent = styled.form`
   position: relative;
@@ -13,7 +13,7 @@ const FormComponent = styled.form`
       rgba(231, 232, 238, 0.15) 94%,
       rgba(231, 232, 238, 0.15) 100%
     ),
-    ${colors.formBackground};
+    ${formBackground};
   &:before {
     content: '';
     position: absolute;
@@ -21,12 +21,17 @@ const FormComponent = styled.form`
     height: 2px;
     left: 50px;
     top: -2px;
-    background: ${colors.activeColor};
+    background: ${activeColor};
   }
   @media (min-width: 768px) and (max-width: 991px) {
     padding-left: 20px;
     padding-right: 20px;
     width: 410px;
+  }
+  @media (max-width: 543px) {
+    width: 100%;
+    height: auto;
+    padding: 35px 15px 76px;
   }
 `;
 

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import FormComponent from '../components/FormComponent';
 import Header from '../components/FormHeader';
+import SubmitButton from '../components/SubmitButton';
+import { TabLink, TabNavigation, TabName } from '../components/TabNavigation';
 import NameField from './NameField';
 import MobileField from './MobileField';
 import GenderField from './GenderField';
+import BirthdateField from './BirthdateField';
 
 const initialFormState = {
   isValid: true,
@@ -51,10 +54,23 @@ export default class PersonalDataForm extends Component {
   render() {
     return (
       <FormComponent>
+        <TabNavigation>
+          <TabLink>
+            01 <TabName>Introduction</TabName>
+          </TabLink>
+          <TabLink active>
+            02 <TabName>Personal</TabName>
+          </TabLink>
+          <TabLink>
+            03 <TabName>Summary</TabName>
+          </TabLink>
+        </TabNavigation>
         <Header />
         <NameField />
         <MobileField />
         <GenderField />
+        <BirthdateField />
+        <SubmitButton>Continue</SubmitButton>
       </FormComponent>
     );
   }
