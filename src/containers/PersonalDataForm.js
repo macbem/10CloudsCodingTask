@@ -2,58 +2,85 @@ import React, { Component } from 'react';
 import FormComponent from '../components/FormComponent';
 import Header from '../components/FormHeader';
 import SubmitButton from '../components/SubmitButton';
-import { TabLink, TabNavigation, TabName } from '../components/TabNavigation';
+import {
+  TabLink,
+  TabNavigation,
+  TabName
+} from '../components/TabNavigation';
 import NameField from './NameField';
 import MobileField from './MobileField';
 import GenderField from './GenderField';
 import BirthdateField from './BirthdateField';
+import * as validators from '../helpers/validators';
 
 const initialFormState = {
-  isValid: true,
-  value: ''
+  value: '',
+  error: 'This field cannot be blank'
 };
 
 const fields = [
-  { name: 'name', validator: 'a fn call' },
-  { name: 'phoneNumber', validator: 'a fn call' },
-  { name: 'gender', validator: 'a fn call' },
-  { name: 'dayOfBirth', validator: 'a fn call' },
-  { name: 'monthOfBirth', validator: 'a fn call' },
-  { name: 'yearOfBirth', validator: 'a fn call' }
+  { name: 'name', validator: validators.validateName },
+  { name: 'phoneNumber', validator: validators.validatePhoneNumber },
+  { name: 'gender', validator: validators.validateGender },
+  {
+    name: 'birthdate',
+    validator: validators.validateDate,
+    value: { day: '', month: '', year: '' }
+  }
 ];
 
 const getInitialFieldsObject = () => {
   let result = {};
   fields.forEach(field => {
-    result[ field.name ] = { ...initialFormState, ...field};
+    result[field.name] = { ...initialFormState, ...field };
   });
   return result;
 };
-
-// A basic form logic routing - a form field...
-// 1. is passed an object
-// 2. runs its validator
-// 3. runs the fn that notifies its parent about it's validity
-// 4. is passed back the object which notifies it if it's valid
 
 export default class PersonalDataForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      shouldShowErrors: false,
       fields: getInitialFieldsObject()
     };
   }
 
-  updateFieldState = (name, obj) => {
-    const newFieldState = {...this.state.fields[name], obj};
-    let fields= this.state.fields;
+  handleSubmit = evt => {
+    evt.preventDefault();
+    this.setState({ shouldShowErrors: true });
+    const fields = this.state.fields;
+    // form result handling should happen here if it was a real case
+    // eslint-disable-next-line
+    const isFormValid = Object.keys(fields).every(
+      el => fields[el].isValid
+    );
+  };
+
+  validateField = ({ validator }, value) => validator(value);
+
+  updateFieldState = (name, value) => {
+    const target = this.state.fields[name];
+    const validationResult = this.validateField(target, value); // string or null
+    const newFieldState = {
+      ...target,
+      value,
+      error: validationResult
+    };
+    let fields = this.state.fields;
     fields[name] = newFieldState;
-    this.setState({fields});
-  }
+    this.setState({ fields });
+  };
 
   render() {
+    const {
+      name,
+      phoneNumber,
+      gender,
+      birthdate
+    } = this.state.fields;
     return (
-      <FormComponent>
+      <FormComponent onSubmit={this.handleSubmit}>
         <TabNavigation>
           <TabLink>
             01 <TabName>Introduction</TabName>
@@ -66,12 +93,28 @@ export default class PersonalDataForm extends Component {
           </TabLink>
         </TabNavigation>
         <Header />
-        <NameField />
-        <MobileField />
-        <GenderField />
-        <BirthdateField />
+        <NameField
+          updateFieldState={this.updateFieldState}
+          shouldShowErrors={this.state.shouldShowErrors}
+          fieldData={name}
+        />
+        <MobileField
+          updateFieldState={this.updateFieldState}
+          shouldShowErrors={this.state.shouldShowErrors}
+          fieldData={phoneNumber}
+        />
+        <GenderField
+          updateFieldState={this.updateFieldState}
+          shouldShowErrors={this.state.shouldShowErrors}
+          fieldData={gender}
+        />
+        <BirthdateField
+          updateFieldState={this.updateFieldState}
+          shouldShowErrors={this.state.shouldShowErrors}
+          fieldData={birthdate}
+        />
         <SubmitButton>Continue</SubmitButton>
       </FormComponent>
     );
   }
-};
+}

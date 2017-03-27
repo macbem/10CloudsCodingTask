@@ -6,7 +6,7 @@ const StyledSelect = styled(Select)`
   width: 114px;
   margin-right: 15px;
   display: inline-block;
-  float: left; // minor hack, allows to omit line-height: 0 on inline-block elements' parent
+  float: left;
 `;
 
 export default StyledSelect;

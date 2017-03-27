@@ -29,20 +29,20 @@ const AnimationWrapper = styled.div`
   }
 `;
 
-const Animation = ( { children } ) => {
+const Animation = ({ children }) => {
   return (
-  <AnimationWrapper>
-    <ReactCSSTransitionGroup
-      transitionName="anim"
-      transitionAppear={true}
-      transitionAppearTimeout={1000}
-      transitionEnterTimeout={1000}
-      transitionEnter={true}
-      transitionLeave={false}
-    >
-      {children}
-    </ReactCSSTransitionGroup>
-  </AnimationWrapper>
+    <AnimationWrapper>
+      <ReactCSSTransitionGroup
+        transitionName="anim"
+        transitionAppear={true}
+        transitionAppearTimeout={1000}
+        transitionEnterTimeout={1000}
+        transitionEnter={true}
+        transitionLeave={false}
+      >
+        {children}
+      </ReactCSSTransitionGroup>
+    </AnimationWrapper>
   );
 };
 

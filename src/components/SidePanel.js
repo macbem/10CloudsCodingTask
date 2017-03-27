@@ -25,7 +25,7 @@ const SidePanelComponent = styled.aside`
   }
 `;
 
-const sidePanel = ( props ) => {
+const sidePanel = props => {
   return <SidePanelComponent />;
 };
 

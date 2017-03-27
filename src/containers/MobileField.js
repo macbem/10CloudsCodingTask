@@ -14,25 +14,56 @@ class MobileField extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value || '+48'
+      prefix: '+48',
+      number: ''
     };
   }
 
-  handleChange = ({value}) => {
-    this.setState({value});
+  handlePrefixChange = value => {
+    this.setState({ prefix: value });
+    const combinedNumber = this.state.prefix + this.state.number;
+    this.props.updateFieldState(
+      this.props.fieldData.name,
+      combinedNumber
+    );
+  };
+
+  handleNumberChange = evt => {
+    this.setState({ number: evt.target.value });
+    const combinedNumber = this.state.prefix + this.state.number;
+    this.props.updateFieldState(
+      this.props.fieldData.name,
+      combinedNumber
+    );
   };
 
   render() {
     return (
       <Field>
-        <Label>Mobile</Label>
-        <PrefixSelect name="mobile-prefix"
-                      value={this.state.value}
-                      options={options}
-                      searchable={false}
-                      clearable={false}
-                      onChange={this.handleChange}/>
-        <PhoneNumberField type="tel" placeholder="720360420" />
+        <Label htmlFor="phone">
+          Mobile
+          {this.props.fieldData.error && this.props.shouldShowErrors
+            ? <span className="error">
+                {this.props.fieldData.error}
+              </span>
+            : ''}
+        </Label>
+        <PrefixSelect
+          name="mobile-prefix"
+          options={options}
+          searchable={false}
+          clearable={false}
+          value={this.state.prefix}
+          onChange={this.handlePrefixChange}
+        />
+        <PhoneNumberField
+          type="tel"
+          placeholder="720360420"
+          id="phone"
+          name="phone"
+          value={this.state.number}
+          onChange={this.handleNumberChange}
+        />
       </Field>
     );
   }

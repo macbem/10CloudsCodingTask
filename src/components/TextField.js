@@ -1,10 +1,15 @@
 import styled from 'styled-components';
-import { borderLight, focusColor, textDark } from '../constants/colors';
+import {
+  borderLight,
+  focusColor,
+  textDark
+} from '../constants/colors';
 
 const TextField = styled.input`
   width: 370px;
   max-width: 100%;
   appearance: none;
+  min-height: 34px;
   padding: 0 16px 14px;
   border: none;
   border-bottom: 2px ${borderLight} solid;
@@ -15,6 +20,7 @@ const TextField = styled.input`
   background: transparent;
   transition: .2s all;
   outline: none;
+  margin: 0;
   &:focus { border-bottom-color: ${focusColor}; }
   @media (max-width: 543px) {
     width: 100%;

@@ -7,6 +7,7 @@ const FormHeaderElement = styled.header`
   padding: 0 63px 0 15px;
   @media (max-width: 543px) {
     margin-bottom: 22px;
+    padding-right: 15px;
   }
 `;
 
@@ -40,7 +41,9 @@ const FormHeading = styled.h1`
 const FormHeader = props => (
   <FormHeaderElement>
     <FormHeading>Your account</FormHeading>
-    <FormDescription>Take it all with you. Switch between devices, and pick up.</FormDescription>
+    <FormDescription>
+      Take it all with you. Switch between devices, and pick up.
+    </FormDescription>
   </FormHeaderElement>
 );
 
