@@ -19,7 +19,7 @@ class MobileField extends Component {
     };
   }
 
-  handlePrefixChange = value => {
+  propagateFieldValue = value => {
     this.setState({ prefix: value });
     const combinedNumber = this.state.prefix + this.state.number;
     this.props.updateFieldState(
@@ -28,13 +28,8 @@ class MobileField extends Component {
     );
   };
 
-  handleNumberChange = evt => {
-    this.setState({ number: evt.target.value });
-    const combinedNumber = this.state.prefix + this.state.number;
-    this.props.updateFieldState(
-      this.props.fieldData.name,
-      combinedNumber
-    );
+  handleInput = evt => {
+    this.propagateFieldValue(evt.target.value);
   };
 
   render() {
@@ -54,7 +49,7 @@ class MobileField extends Component {
           searchable={false}
           clearable={false}
           value={this.state.prefix}
-          onChange={this.handlePrefixChange}
+          onChange={this.propagateFieldValue}
         />
         <PhoneNumberField
           type="tel"
@@ -62,7 +57,7 @@ class MobileField extends Component {
           id="phone"
           name="phone"
           value={this.state.number}
-          onChange={this.handleNumberChange}
+          onChange={this.handleInput}
         />
       </Field>
     );

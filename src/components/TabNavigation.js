@@ -30,11 +30,17 @@ export const TabLink = styled.a`
     width: 25px;
     height: 2px;
     position: absolute;
-    background: ${({ active }) => active ? activeColor : 'rgba(255, 255, 255, 0.25)'};
+    background: ${({ active }) => {
+  return active ? activeColor : 'rgba(255, 255, 255, 0.25)';
+}};
   }
-  color: ${({ active }) => active ? 'white' : 'grey'};
+  color: ${({ active }) => {
+  return active ? 'white' : 'grey';
+}};
   & span {
-    display: ${({ active }) => active ? 'block' : 'none'};
+    display: ${({ active }) => {
+  return active ? 'block' : 'none';
+}};
   }
 `;
 

@@ -38,13 +38,15 @@ const FormHeading = styled.h1`
   }
 `;
 
-const FormHeader = props => (
-  <FormHeaderElement>
-    <FormHeading>Your account</FormHeading>
-    <FormDescription>
-      Take it all with you. Switch between devices, and pick up.
-    </FormDescription>
-  </FormHeaderElement>
-);
+const FormHeader = props => {
+  return (
+    <FormHeaderElement>
+      <FormHeading>Your account</FormHeading>
+      <FormDescription>
+        Take it all with you. Switch between devices, and pick up.
+      </FormDescription>
+    </FormHeaderElement>
+  );
+};
 
 export default FormHeader;

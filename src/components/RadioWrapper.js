@@ -37,7 +37,9 @@ export const CustomRadio = styled.label`
   &, &::after {
     border-width: 2px;
     border-style: solid;
-    border-color: ${({ ticked }) => ticked ? hintColor : borderLight};
+    border-color: ${({ ticked }) => {
+  return ticked ? hintColor : borderLight;
+}};
   }
   &, &::before, &::after {
     transition: .2s border-color, .2s background;
@@ -48,7 +50,9 @@ export const CustomRadio = styled.label`
     z-index: 1;
     transform: translate(50%, -50%);
     background: ${hintColor};
-    display: ${({ ticked }) => ticked ? 'block' : 'none'};
+    display: ${({ ticked }) => {
+  return ticked ? 'block' : 'none';
+}};
   }
   &::after {
     width: 15px;
