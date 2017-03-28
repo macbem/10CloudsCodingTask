@@ -19,7 +19,7 @@ export default styled.button`
   transition: .3s border-bottom ease;
   outline: none;
   border-bottom: 2px solid transparent;
-  overflow: visible; // IE 11 hack
+  overflow: visible; /* IE 11 hack */
   &:focus, &:focus::before,
   &:hover, &:hover::before {
     border-bottom-color: ${hintColor}; 
@@ -38,7 +38,7 @@ export default styled.button`
     cursor: pointer;
     transform: translateX(100%);
     box-shadow: 0 23px 24px rgba(13, 13, 31, 0.08);
-    background-color: #7841f4;e
+    background-color: #7841f4;
   }
   @media (max-width: 991px) {
     left: calc(50% - 25px);

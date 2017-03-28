@@ -5,10 +5,9 @@ const FormContainer = styled.section`
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  width: 778px;
-  height: 552px;
   margin-top: 85px;
-  margin-bottom: 25px;
+  //margin-bottom: 35px;
+  margin-bottom: 46px;
   @media (max-width: 543px) {
     width: 100%;
     height: auto;

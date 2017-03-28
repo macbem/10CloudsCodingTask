@@ -50,7 +50,6 @@ export default class PersonalDataForm extends Component {
     evt.preventDefault();
     this.setState({ shouldShowErrors: true });
     const fields = this.state.fields;
-    // form result handling should happen here if it was a real case
     // eslint-disable-next-line
     const isFormValid = Object.keys(fields).every(
       el => fields[el].isValid

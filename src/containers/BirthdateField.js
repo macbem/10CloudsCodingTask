@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Field from '../components/FormField';
 import Label from '../components/InputLabel';
 import {
@@ -69,5 +69,14 @@ class BirthdateField extends Component {
     );
   }
 }
+
+BirthdateField.propTypes = {
+  updateFieldState: PropTypes.func.isRequired,
+  shouldShowErrors: PropTypes.bool.isRequired,
+  fieldData: PropTypes.shape({
+    error: PropTypes.any.isRequired,
+    name: PropTypes.string.isRequired
+  })
+};
 
 export default BirthdateField;

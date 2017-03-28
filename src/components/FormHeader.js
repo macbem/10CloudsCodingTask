@@ -27,6 +27,9 @@ const FormHeading = styled.h1`
   top: -143px;
   font-size: 48px;
   left: 15px;
+  @media (max-width: 991px) {
+    top: -120px;
+  }
   @media (max-width: 767px) {
     text-align: center;
     left: 0;

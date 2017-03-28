@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Select from 'react-select';
-import '../css/react-select-custom.css';
 
 const StyledSelect = styled(Select)`
   width: 114px;

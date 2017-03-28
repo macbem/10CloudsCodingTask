@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Field from '../components/FormField';
 import Label from '../components/InputLabel';
 import PhoneNumberField from '../components/PhoneNumberField';
@@ -19,8 +19,7 @@ class MobileField extends Component {
     };
   }
 
-  propagateFieldValue = value => {
-    this.setState({ prefix: value });
+  propagateValueChanges = () => {
     const combinedNumber = this.state.prefix + this.state.number;
     this.props.updateFieldState(
       this.props.fieldData.name,
@@ -28,8 +27,15 @@ class MobileField extends Component {
     );
   };
 
-  handleInput = evt => {
-    this.propagateFieldValue(evt.target.value);
+  handlePrefixChange = value => {
+    this.setState({ prefix: value }, this.propagateValueChanges);
+  };
+
+  handleNumberChange = evt => {
+    this.setState(
+      { number: evt.target.value },
+      this.propagateValueChanges
+    );
   };
 
   render() {
@@ -49,7 +55,7 @@ class MobileField extends Component {
           searchable={false}
           clearable={false}
           value={this.state.prefix}
-          onChange={this.propagateFieldValue}
+          onChange={this.handlePrefixChange}
         />
         <PhoneNumberField
           type="tel"
@@ -57,11 +63,20 @@ class MobileField extends Component {
           id="phone"
           name="phone"
           value={this.state.number}
-          onChange={this.handleInput}
+          onChange={this.handleNumberChange}
         />
       </Field>
     );
   }
 }
+
+MobileField.propTypes = {
+  updateFieldState: PropTypes.func.isRequired,
+  shouldShowErrors: PropTypes.bool.isRequired,
+  fieldData: PropTypes.shape({
+    error: PropTypes.any.isRequired,
+    name: PropTypes.string.isRequired
+  })
+};
 
 export default MobileField;

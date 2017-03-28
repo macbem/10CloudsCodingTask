@@ -28,6 +28,8 @@ export const CustomRadio = styled.label`
   width: 50px;
   height: 50px;
   display: inline-block;
+  vertical-align: top;
+  font-size: 0;
   padding-top: 11px;
   text-align: center;
   position: relative;
