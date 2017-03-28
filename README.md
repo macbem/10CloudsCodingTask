@@ -13,4 +13,4 @@ This project was bootstrapped using Create React App with _eslint_ and _prettier
 
 To install & run it, just use `npm install` and `npm start` :)
 
-It's also hosted [here](10c-coding-task.surge.sh "10c-coding-task.surge.sh").
+It's also hosted [here](https://10c-coding-task.surge.sh "10c-coding-task.surge.sh").
