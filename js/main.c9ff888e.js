@@ -12711,13 +12711,11 @@
           var o = e._hostContainerInfo,
             i = o._node && o._node.nodeType === q,
             u = i ? o._node : o._ownerDocument;
-          L(t, u), r
-            .getReactMountReady()
-            .enqueue(a, {
-              inst: e,
-              registrationName: t,
-              listener: n
-            });
+          L(t, u), r.getReactMountReady().enqueue(a, {
+            inst: e,
+            registrationName: t,
+            listener: n
+          });
         }
       }
       function a() {
