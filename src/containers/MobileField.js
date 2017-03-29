@@ -27,7 +27,7 @@ class MobileField extends Component {
     );
   };
 
-  handlePrefixChange = value => {
+  handlePrefixChange = ({ value }) => {
     this.setState({ prefix: value }, this.propagateValueChanges);
   };
 
