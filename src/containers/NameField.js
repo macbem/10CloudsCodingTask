@@ -16,12 +16,10 @@ class NameField extends Component {
       { value: evt.target.value },
       this.props.updateFieldState(
         this.props.fieldData.name,
-        this.state.value
+        evt.target.value
       )
     );
   };
-
-  handleBlur = () => {};
 
   render() {
     return (
@@ -40,7 +38,6 @@ class NameField extends Component {
           placeholder="Gabe Newell"
           value={this.state.value}
           onChange={this.handleUpdate}
-          onBlur={this.handleBlur}
         />
       </Field>
     );

@@ -18,7 +18,7 @@ class GenderField extends Component {
       },
       this.props.updateFieldState(
         this.props.fieldData.name,
-        this.state.value
+        evt.target.value
       )
     );
   };
